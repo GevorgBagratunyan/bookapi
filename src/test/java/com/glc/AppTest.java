@@ -1,11 +1,10 @@
 package com.glc;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
-
 import org.junit.Test;
 
 import java.util.List;
+
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -66,5 +65,26 @@ public class AppTest
 
         //ASSERT
         assertEquals(actual, 3);
+    }
+
+    //Given that I have a book in my list, when I call removeBook("<title>") with "title" representing the title of my book that I want to delete,
+    //then when I call getBooks() the book I deleted should no longer be there.
+    @Test
+    public void removeBookShouldRemoveBookInBookList_And_getBooksShouldReturnListWithoutRemovedOne() {
+        //SETUP
+        ReadingList readingList = new ReadingList();
+        Book book1 = new Book("1984", "George Orwell", 328, 1949);
+        Book book2 = new Book("The Da Vinci Code", "Dan Brown", 689, 2003);
+        Book book3 = new Book("The Picture of Dorian Gray", "Oscar Wilde", 456, 1890);
+        readingList.addBook(book1, "January 24, 2021", 5);
+        readingList.addBook(book2, "February 13, 2005", 4);
+        readingList.addBook(book3, "October 9, 2008", 5);
+
+        //EXECUTE
+        removeBook("The Da Vinci Code");
+        List<Book> books = readingList.getBooks();
+
+        //ASSERT
+        assertFalse(books.contains(book2));
     }
 }
