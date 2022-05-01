@@ -33,8 +33,12 @@ public class ReadingList {
         books.add(new BookItems(book, readDate, rating));
     }
 
-
     public int numberRead() {
         return books.size();
     }
+
+    public void removeBook(String title) {
+        books.removeIf(bookItems -> bookItems.book.getTitle().equals(title));
+    }
+
 }

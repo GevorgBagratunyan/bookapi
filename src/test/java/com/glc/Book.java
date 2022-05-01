@@ -13,4 +13,20 @@ public class Book {
         this.length = length;
         this.year = year;
     }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public int getLength() {
+        return length;
+    }
+
+    public int getYear() {
+        return year;
+    }
 }
