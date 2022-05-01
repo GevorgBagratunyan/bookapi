@@ -87,4 +87,19 @@ public class AppTest
         //ASSERT
         assertFalse(books.contains(book2));
     }
+
+    //Given that I have an empty list, when I add a new book I expect getBooks() to return a list of books that includes the book I added.
+    @Test
+    public void getBooksShouldReturnListOfAddedBooks() {
+        //SETUP
+        ReadingList readingList = new ReadingList();
+        Book book = new Book("1984", "George Orwell", 328, 1949);
+        readingList.addBook(book, "January 24, 2021", 5);
+
+        //EXECUTE
+        List<Book> books = readingList.getBooks();
+
+        //ASSERT
+        assertTrue(books.contains(book));
+    }
 }
