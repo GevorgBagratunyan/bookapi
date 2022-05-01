@@ -5,6 +5,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import java.util.List;
+
 /**
  * Unit test for simple App.
  */
@@ -26,7 +28,7 @@ public class AppTest
         ReadingList readingList = new ReadingList();
 
         //EXECUTE
-        List<Book> books = readingList.getBookList();
+        List<Book> books = readingList.getBooks();
 
         //ASSERT
         assertEquals(books.size(), 0);
