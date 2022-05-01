@@ -81,7 +81,7 @@ public class AppTest
         readingList.addBook(book3, "October 9, 2008", 5);
 
         //EXECUTE
-        removeBook("The Da Vinci Code");
+        readingList.removeBook("The Da Vinci Code");
         List<Book> books = readingList.getBooks();
 
         //ASSERT
