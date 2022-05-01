@@ -34,7 +34,7 @@ public class ReadingList {
     }
 
 
-    public int readNumber() {
+    public int numberRead() {
         return books.size();
     }
 }
