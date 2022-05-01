@@ -29,4 +29,9 @@ public class Book {
     public int getYear() {
         return year;
     }
+
+    @Override
+    public String toString() {
+        return String.format("%s by %s, %d pages, %d", title, author, length, year);
+    }
 }

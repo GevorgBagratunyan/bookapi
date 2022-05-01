@@ -16,9 +16,18 @@ public class ReadingList {
             this.readDate = readDate;
             this.rating = rating;
         }
+
+        @Override
+        public String toString() {
+            return book.toString() + String.format(", read on %s, rating -> %d", readDate, rating);
+        }
     }
 
-    private List<BookItems> books = new ArrayList<>();
+    private List<BookItems> books;
+
+    public ReadingList() {
+        this.books = new ArrayList<>();
+    }
 
     public List<Book> getBooks() {
         return books.stream()
@@ -37,8 +46,11 @@ public class ReadingList {
         return books.size();
     }
 
-    public void removeBook(String title) {
-        books.removeIf(bookItems -> bookItems.book.getTitle().equals(title));
+    public void deleteBook(String title) {
+        boolean success = books.removeIf(bookItems -> bookItems.book.getTitle().equals(title));
+        if(!success) {
+            throw new RuntimeException("The book by given title" + title + " not found");
+        }
     }
 
     public List<Book> getBooksByRating(int rating) {
