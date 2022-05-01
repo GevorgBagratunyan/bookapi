@@ -41,4 +41,10 @@ public class ReadingList {
         books.removeIf(bookItems -> bookItems.book.getTitle().equals(title));
     }
 
+    public List<Book> getBooksByRating(int rating) {
+        return books.stream()
+                .filter(bookItems -> bookItems.rating == rating)
+                .map(bookItems -> bookItems.book)
+                .collect(Collectors.toList());
+    }
 }
