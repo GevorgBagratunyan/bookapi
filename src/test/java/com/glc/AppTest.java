@@ -33,4 +33,19 @@ public class AppTest
         //ASSERT
         assertEquals(books.size(), 0);
     }
+
+    //Given that I have an empty list, when I add the first book to my list then I expect `numberRead` to return 1.
+    @Test
+    public void onFirstBookAddedNumberReadShouldBeOne() {
+        //SETUP
+        ReadingList readingList = new ReadingList();
+        Book book = new Book("1984", "George Orwell", 328, 1949);
+        readingList.addBook(book, "January 24, 2021", 5);
+
+        //EXECUTE
+        int actual =readingList.readNumber();
+
+        //ASSERT
+        assertEquals(actual, 1);
+    }
 }
